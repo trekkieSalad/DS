@@ -19,10 +19,10 @@ public class StringUtilities {
         if (c.length() != (a.length() + b.length()))
             return false;
         else {
-            //recorrer caracter a caracter el string c mirando si el caracter coincide
+            //recorremos caracter a caracter el string c mirando si el caracter coincide
             // con el caracter de alguno de los string a ó b
             for (int i = 0; i < c.length(); i++) {
-                //comprobar que se preserva el orden de los caracteres del string a y b en el string c
+                //comprobamos que se preserva el orden de los caracteres del string a y b en el string c
                 // comprobando con la funcion indexof que da el indice  del caracter indicada
                 // si la posicion que se comprueba es
                 if (a.length() > contLetrasStringA && c.indexOf(a.charAt(contLetrasStringA)) == (contLetrasStringA +
@@ -50,13 +50,12 @@ public class StringUtilities {
         int contLetrasC = 0, contLetrasA = 0, contLetrasB = 0;
         StringBuilder c = new StringBuilder(a.length() + b.length());
         while (contLetrasC < c.capacity()) {
-            int numero = (int) (Math.random() * +2);//funcion que devuelde alectoria mente 1 ó 0
+            int numero = (int) (Math.random() * 2);
             if ((numero == 0 && a.length() > contLetrasA) || b.length() < contLetrasB) {
-                c.insert(contLetrasC, a.charAt(contLetrasA));//inserta en el nuevo string el caracter correspondiente
+                c.insert(contLetrasC, a.charAt(contLetrasA));
                 contLetrasC++;
                 contLetrasA++;
             } else if ((numero == 1 && b.length() > contLetrasB) || a.length() < contLetrasA) {
-                //elegurir inserta del string  cual insettar en esa posicion
                 c.insert(contLetrasC, b.charAt(contLetrasB));
                 contLetrasC++;
                 contLetrasB++;
@@ -64,6 +63,5 @@ public class StringUtilities {
         }
         return c.toString();
     }
-
 
 }

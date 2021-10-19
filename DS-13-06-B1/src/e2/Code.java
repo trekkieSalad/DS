@@ -18,46 +18,46 @@ public class Code {
             //recorrido de la matriz por filas
             for (char[] chars : keypad) {
                 for (char aChar : chars) {
-                                //comparar si el elemento de la matriz sigue el orden prestablecido por filas
-                                if (aChar == conparaCaracteres) {
-                                    //asincaciones que se tienen que hacer en conparaCaracteres para siguir la
-                                    // secuencia prestablecida usando el orden en la tabla ascii
+                    //comparar si el elemento de la matriz sigue el orden prestablecido por filas
+                    if (aChar == conparaCaracteres) {
+                    //asincaciones que se tienen que hacer en conparaCaracteres para siguir la
+                    // secuencia prestablecida usando el orden en la tabla ascii
+                        if (conparaCaracteres == '0')
+                            conparaCaracteres = 'A';
+                        else if (conparaCaracteres == '9')
+                            conparaCaracteres = '0';
+                        else
+                            //se aumenta en 1 conparaCaracteres para coguer el siguiente caracter que esta a
+                            // continucacion en la tabla ASCII
+                            conparaCaracteres++;
+                    }
+                    //sigue cumple esta condicion e comprueba si sigue un orden por columnas
+                    else if (conparaCaracteres=='2') {
+                        //recorrido de la matriz por columnas
+                        for (int i = 0; i < keypad[0].length; i++) {
+                            for (int j = 0; j < keypad.length; j++) {
+                                if (conparaCaracteres == '2')
+                                    j++;
+                                //comparar si el elemento de la matriz sigue el orden prestablecido por columnas
+                                if (keypad[j][i] == conparaCaracteres) {
                                     if (conparaCaracteres == '0')
                                         conparaCaracteres = 'A';
                                     else if (conparaCaracteres == '9')
                                         conparaCaracteres = '0';
                                     else
-                                        //se aumenta en 1 conparaCaracteres para coguer el siguiente caracter que esta a
-                                        // continucacion en la tabla ASCII
                                         conparaCaracteres++;
-                                }
-                                //sigue cumple esta condicion e comprueba si sigue un orden por columnas
-                                else if (conparaCaracteres=='2') {
-                                    //recorrido de la matriz por columnas
-                                    for (int i = 0; i < keypad[0].length; i++) {
-                                        for (int j = 0; j < keypad.length; j++) {
-                                            if (conparaCaracteres == '2')
-                                                j++;
-                                            //comparar si el elemento de la matriz sigue el orden prestablecido por columnas
-                                            if (keypad[j][i] == conparaCaracteres) {
-                                                if (conparaCaracteres == '0')
-                                                    conparaCaracteres = 'A';
-                                                else if (conparaCaracteres == '9')
-                                                    conparaCaracteres = '0';
-                                                else
-                                                    conparaCaracteres++;
-                                            } else
-                                                return false;
-                                        }
-                                    }
-                                    //situacion que se sigue el orden prestablecido en columnas
-                                    return true;
-                                }
-                                //situacion en el que el caracter no sigue el orden prestablecido devolver false
-                                else
+                                } else
                                     return false;
                             }
                         }
+                        //situacion que se sigue el orden prestablecido en columnas
+                        return true;
+                    }
+                    //situacion en el que el caracter no sigue el orden prestablecido devolver false
+                    else
+                        return false;
+                }
+            }
             //si se produce la excepcion NullPointerException significa que la matriz tiene un elemento nulo y se
             // devuelve false
         } catch (NullPointerException e) {
@@ -130,8 +130,5 @@ public class Code {
         }
         return codigo.toString();
     }
-
-
-
 
 }

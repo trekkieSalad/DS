@@ -115,8 +115,6 @@ public class Clock {
      * @return the hours in 12h format
      */
     public int getHours12 () {
-        //comprueba si es formato 24 horas y la hora supera las 12 si es cierto se tiene que
-        // restar 12 a la hora actual para representar en formato de 12 horas
         if(this.period==null&&this.hour>12)
             return this.hour-12;
         return this.hour;
@@ -156,10 +154,8 @@ public class Clock {
      * @see String . format function to format integers with leading zeroes
      */
     public String printHour24 () {
-        //formato para imprimir en 24 horas
-        String patron= "%02d:%02d:%02d";
-        //aplicacion del formato de impresion
-        return String.format(patron,getHours24(),getMinutes(),getSeconds());
+        String formato= "%02d:%02d:%02d";
+        return String.format(formato,getHours24(),getMinutes(),getSeconds());
     }
     /**
      * Prints a String representation of the clock in 12h format .
@@ -167,10 +163,8 @@ public class Clock {
      * @see String . format function to format integers with leading zeroes
      */
     public String printHour12 () {
-        //formato para imprimir en 12 horas
-        String patron= "%02d:%02d:%02d %s";
-        //aplicacion del formato de impresion
-        return String.format(patron,getHours12(),getMinutes(),getSeconds(),getPeriod().abreviatura);
+        String formato= "%02d:%02d:%02d %s";
+        return String.format(formato,getHours12(),getMinutes(),getSeconds(),getPeriod().abreviatura);
     }
     /**
      * Performs the equality tests of the current clock with another clock
